@@ -1,15 +1,11 @@
 {
 	"name": "firmware",
-	"version": "1.0",
-	"description": "Suncorp Rooster GX Firmware Management",
+	"version": "1.0.0",
+	"description": "Firmware update",
 	"maintainers": [
 		{
 			"name": "Tokyo Engineering Team",
 			"email": "asparagus@yourinventit.com"
-		},
-		{
-			"name": "Beijing Engineering Team",
-			"email": "bejing-all@yourinventit.com"
 		}
 	],
 	"bugs": {
