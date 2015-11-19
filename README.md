@@ -80,6 +80,6 @@ $ grunt clean
 
 ## Server Package
 
-### `0.0.1` November 30, 2015
+### `1.0.0` November 30, 2015
 
 * Initial Release
