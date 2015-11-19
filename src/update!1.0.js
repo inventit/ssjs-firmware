@@ -24,7 +24,7 @@ if (!fw) {
 	throw message;
 }
 var uid = fw.uid;
-var firmwareArray = database.querySharedByUids(
+var firmwareArray = database.queryByUids(
 	'Binary', [uid],
 	['name','version','object'], ['get']);
 if (firmwareArray.length === 0) {
@@ -41,7 +41,11 @@ downloadInfo.url = firmware.object.get;
 downloadInfo.uid = uid;
 downloadInfo.name = firmware.name;
 downloadInfo.version = firmware.version;
-downloadInfoMapper.update(downloadInfo);
+downloadInfoMapper.update(downloadInfo, {
+  error : function(type, code) {
+		session.log('update', 'error: type:' + type + ', code:' + code);
+	}
+});
 downloadInfo.downloadAndUpdate(session, null, {
 	success: function(result) {
 		// always assume async to receive the updateation result
