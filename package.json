@@ -1,16 +1,19 @@
 {
-  "name": "moatjs-seed",
-  "version": "1.0.3",
-  "description": "A seed project for your MOAT js app",
+  "name": "firmware",
+  "version": "1.0.0",
+	"description": "Firmware update",
   "maintainers": [
-    "YOUR-COMPANY <yourname@yourcompany.com>"
+    {
+      "name": "Inventit Inc.",
+      "email": "egypt@yourinventit.com"
+    }
   ],
   "bugs": {
-    "mail": "yourname@yourcompany.com"
+    "email": "egypt@yourinventit.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/inventit/moatjs-seed.git"
+    "url": "git@bitbucket.org:inventit/ssjs-firmware.git"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
@@ -31,16 +34,27 @@
   "engines": {
     "moat-runtime": ">=1.0.0 <2.0.0"
   },
-  "models": {
-    "MyModel": {
-      "array": false,
-      "attributes": {
-        "firstName": {
-          "type": "string"
-        },
-        "LastName": {
-          "type": "string"
-        }
+  "models" : {
+    "Binary" : {
+      "array" : true,
+      "shared" : true,
+      "attributes" : {
+        "name" : {"type" : "string"},
+        "version" : {"type" : "string"},
+        "object" : {"type" : "resource"}
+      }
+    },
+    "DownloadInfo" : {
+      "array" : false,
+      "attributes" : {
+        "url" : {"type" : "string"},
+        "name" : {"type" : "string"},
+        "version" : {"type" : "string"},
+        "status" : {"type" : "string"},
+        "errorInfo" : {"type" : "string"}
+      },
+      "commands" : {
+        "downloadAndUpdate" : {"paramType" : null}
       }
     }
   }
