@@ -1,49 +1,85 @@
-MOAT js Seed Project
+MOAT js Firmware App
 ========
 
-## Scripts
+# System Requirements
 
-This package contains the following scripts:
+If you want to run this application on your ServiceSync, here's what it takes:
+* __ServiceSync Server:__ `v2.2.3` or later
+* __ServiceSync Clinet:__ `v1.1.0` or later
 
-- `myapp.js`: Sample MOAT js script.
+Supported gateway devices are as follows:
 
-*.test.js files under `test` directories are unit testing scripts.
+* __Generic Intel-based PCs:__ Debian `7.x` (Wheezy)
+* __Amradillo-IoT / G2:__  Kernel `v3.14-at3` + AtmarkDist `v20150826` or later
+* __OpenBlocks:__ Firmware `1.0.4` or later
+* __Raspberry Pi:__ Raspbian `May 2015`
 
-## Models
+## Server Package
 
-Describe about the model defined in `package.json`.
+### Preparing Development Environment
 
-## Commands
-### Set up
+To develop a Server Package, `Node.js`, `Grunt` and `Java`(1.6 or later) are required. If these tools even work, you are able to use any Operating System what you like.
 
-    npm install
+In case of using Mac or Linux, you can install `Node.js` with [nodebrew](https://github.com/hokaccha/nodebrew).
+The blow is a sample to install Node.js `v0.12.5`.
+```
+$ nodebrew install-binary v0.12.5
+$ nodebrew use v0.12.5
+$ node -v
+v0.12.5
+```
 
-### Build & Unit Tests
+[Grunt](http://gruntjs.com/) is required to build the Server Package. Install Grunt as follows.
+```
+$ npm install -g grunt-cli
+```
+Java Runtime is required by Grunt task. Install Java Runtime.
 
-    grunt
+Linux:
+```
+$ sudo apt-get install openjdk-7-jre
+```
 
-### Packaging
+Mac or Windows:
+* Refer to https://www.java.com/en/download/help/download_options.xml
 
-    grunt pack
+### Build
 
-### Cleaning
+Get the source code.
 
-    grunt clean
+Execute the following commands to build the Server Package. The Server Package named `firmware-${VERSION}.zip` will be generated.
+```
+$ npm install
+$ grunt pack
+```
 
-## Change History
+If you want to clean artifacts, execute the following command.
+```
+$ grunt clean
+```
 
-### 1.0.3 Aug 3, 2015
+### Deploy
 
-- Fixed invalid dependency in package.json
+1. Login to ServiceSync Web Console with PP's (Platform Provicer) account.
+2. Select [Packages] from the side menu.
+3. Open [Server Packages] tab.
+4. Click [Add] Button. Pop-up window will appear.
+5. Select the Server Package and click [submit] button.
+6. Push [Deploy] button in [Detail Info].
 
-### 1.0.2 Jul 15, 2015
 
-- Fixed invalid devDependency in package.json
+# Limitation
 
-### 1.0.1 Jul 15, 2015
+* No limitation as of now
 
-- Fixed invalid repository url in package.json
+# Known Bugs
 
-### 1.0.0 Jun 24, 2015
+* No bug as of now
 
-- Initial public release
+# Change History
+
+## Server Package
+
+### `0.0.1` November 30, 2015
+
+* Initial Release
