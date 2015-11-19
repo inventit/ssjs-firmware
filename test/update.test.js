@@ -1,6 +1,6 @@
 var nodeUnit = require('nodeunit');
 var sinon = require('sinon');
-var script = require('path').resolve('./src/update!1.0.js');
+var script = require('path').resolve('./src/update.js');
 var moat = require('moat');
 
 module.exports = nodeUnit.testCase({
