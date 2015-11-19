@@ -1,7 +1,7 @@
 /*
  * JobServiceID:
  * urn:moat:${APPID}:firmware:update:1.0
- * 
+ *
  * Description: Firmware Update Function.
  * Reference: https://docs.google.com/a/yourinventit.com/document/d/1kdHxMp2VcZWcDnJ4YZqmW_aEYQt94ySrlityZQK2g6w/edit#heading=h.ql5gc3idrq72
  */
@@ -27,7 +27,7 @@ var uid = fw.uid;
 var firmwareArray = database.querySharedByUids(
 	'Binary', [uid],
 	['name','version','object'], ['get']);
-if (firmwareArray.length == 0) {
+if (firmwareArray.length === 0) {
 	// The firmware is missing! Error!!!
 	var message = "Firmware with uid:" + uid + " is missing!";
 	session.log('update', message);

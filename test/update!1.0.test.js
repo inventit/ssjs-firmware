@@ -14,14 +14,14 @@ module.exports = nodeUnit.testCase({
   'firmware update, successful case.' : function(assert) {
 	// record state
     var context = moat.init(sinon);
-    var arguments = {
+    var args = {
         fw: {
             uid: "uid-for-firmware-binary"
         }
     };
     context.setDevice('uid', 'deviceId', 'name', 'status', 'clientVersion', 0);
     context.setDmjob('uid', 'deviceId', 'name', 'status', 'jobServiceId',
-			'sessionId', arguments, 'createdAt', 'activatedAt', 'startedAt',
+			'sessionId', args, 'createdAt', 'activatedAt', 'startedAt',
 			'expiredAt', 'http', 'http://localhost');
 	var database = context.database;
 	var binary = {
@@ -58,14 +58,14 @@ module.exports = nodeUnit.testCase({
   'firmware update, error case.' : function(assert) {
 	// record state
     var context = moat.init(sinon);
-    var arguments = {
+    var args = {
         fw: {
             uid: "uid-for-firmware-binary"
         }
     };
     context.setDevice('uid', 'deviceId', 'name', 'status', 'clientVersion', 0);
     context.setDmjob('uid', 'deviceId', 'name', 'status', 'jobServiceId',
-			'sessionId', arguments, 'createdAt', 'activatedAt', 'startedAt',
+			'sessionId', args, 'createdAt', 'activatedAt', 'startedAt',
 			'expiredAt', 'http', 'http://localhost');
 	var database = context.database;
 	var binary = {
