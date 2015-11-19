@@ -15,14 +15,14 @@ session.log('update-result', 'Start Firmware Update Result!');
 // DownloadInfo should be returned
 var objects = clientRequest.objects;
 if (objects.length === 0) {
-	session.log('Device sends wrong information.');
-	throw "No DownloadInfo object!";
+  session.log('Device sends wrong information.');
+  throw "No DownloadInfo object!";
 }
 var result = objects[0];
 if (result.status != 'UPDATED') {
-	// error!
-	session.log('update-result', 'Failed to firmware update:' + result.name + ', status:' + result.status + ', errorInfo:' + result.errorInfo);
+  // error!
+  session.log('update-result', 'Failed to firmware update:' + result.name + ', status:' + result.status + ', errorInfo:' + result.errorInfo);
 } else {
-	session.log('update-result', 'OK! : ' + result.name);
+  session.log('update-result', 'OK! : ' + result.name);
 }
 session.notifyAsync(result);

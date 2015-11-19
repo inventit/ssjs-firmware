@@ -19,19 +19,19 @@ session.log('update', 'args => ' + JSON.stringify(args));
 
 var fw = args.fw;
 if (!fw) {
-	var message = "Argument 'fw' is missing!";
-	session.log('update', message);
-	throw message;
+  var message = "Argument 'fw' is missing!";
+  session.log('update', message);
+  throw message;
 }
 var uid = fw.uid;
 var firmwareArray = database.queryByUids(
-	'Binary', [uid],
-	['name','version','object'], ['get']);
+  'Binary', [uid],
+  ['name','version','object'], ['get']);
 if (firmwareArray.length === 0) {
-	// The firmware is missing! Error!!!
-	var message = "Firmware with uid:" + uid + " is missing!";
-	session.log('update', message);
-	throw message;
+  // The firmware is missing! Error!!!
+  var message = "Firmware with uid:" + uid + " is missing!";
+  session.log('update', message);
+  throw message;
 }
 var firmware = firmwareArray[0];
 
@@ -43,22 +43,22 @@ downloadInfo.name = firmware.name;
 downloadInfo.version = firmware.version;
 downloadInfoMapper.update(downloadInfo, {
   error : function(type, code) {
-		session.log('update', 'error: type:' + type + ', code:' + code);
-	}
+    session.log('update', 'error: type:' + type + ', code:' + code);
+  }
 });
 downloadInfo.downloadAndUpdate(session, null, {
-	success: function(result) {
-		// always assume async to receive the updateation result
-		session.setWaitingForResultNotification(true);
-		session.log('update', 'success!');
-	},
-	error: function(type, code) {
-		session.log('update', 'error: type:' + type + ', code:' + code);
-		downloadInfo.status = 'ERROR';
-		downloadInfo.errorInfo = {
-			type: type,
-			code: code
-		};
-		session.notifyAsync(downloadInfo);
-	}
+  success: function(result) {
+    // always assume async to receive the updateation result
+    session.setWaitingForResultNotification(true);
+    session.log('update', 'success!');
+  },
+  error: function(type, code) {
+    session.log('update', 'error: type:' + type + ', code:' + code);
+    downloadInfo.status = 'ERROR';
+    downloadInfo.errorInfo = {
+      type: type,
+      code: code
+    };
+    session.notifyAsync(downloadInfo);
+  }
 }); // including commit()
