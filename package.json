@@ -37,7 +37,7 @@
   "models" : {
     "Binary" : {
       "array" : true,
-      "scope" : "user",
+      "shared" : true,
       "attributes" : {
         "name" : {"type" : "string"},
         "version" : {"type" : "string"},
