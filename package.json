@@ -9,7 +9,7 @@
     }
   ],
   "bugs": {
-    "email": "egypt@yourinventit.com"
+    "mail": "egypt@yourinventit.com"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
   "models" : {
     "Binary" : {
       "array" : true,
-      "shared" : true,
+      "scope" : "user",
       "attributes" : {
         "name" : {"type" : "string"},
         "version" : {"type" : "string"},
@@ -46,6 +46,7 @@
     },
     "DownloadInfo" : {
       "array" : false,
+      "scope" : "device",
       "attributes" : {
         "url" : {"type" : "string"},
         "name" : {"type" : "string"},
