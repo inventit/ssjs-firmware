@@ -4,14 +4,14 @@ MOAT js Firmware App
 # System Requirements
 
 If you want to run this application on your ServiceSync, here's what it takes:
-* __ServiceSync Server:__ `v2.2.3` or later
-* __ServiceSync Clinet:__ `v1.1.0` or later
+* __ServiceSync Server:__ `v2.2.5` or later
+* __ServiceSync Clinet:__ `v1.1.2` or later
 
 Supported gateway devices are as follows:
 
 * __Generic Intel-based PCs:__ Debian `7.x` (Wheezy)
-* __Amradillo-IoT / G2:__  Kernel `v3.14-at3` + AtmarkDist `v20150826` or later
-* __OpenBlocks:__ Firmware `1.0.4` or later
+* __Amradillo-IoT / G2:__  Kernel `v3.14-at4` + AtmarkDist `v20151026` or later
+* __OpenBlocks:__ Firmware `1.0.5` or later
 * __Raspberry Pi:__ Raspbian `May 2015`
 
 ## Server Package
