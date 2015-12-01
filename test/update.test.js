@@ -32,7 +32,7 @@ module.exports = nodeUnit.testCase({
         type: 'my-type'
       }
     };
-    database.querySharedByUids.withArgs(
+    database.queryByUids.withArgs(
       'Binary', ['uid-for-firmware-binary'],
       ['name','version','object'], ['get']).returns([binary]);
 
@@ -76,7 +76,7 @@ module.exports = nodeUnit.testCase({
         type: 'my-type'
       }
     };
-    database.querySharedByUids.withArgs(
+    database.queryByUids.withArgs(
       'Binary', ['uid-for-firmware-binary'],
       ['name','version','object'], ['get']).returns([binary]);
 

@@ -24,7 +24,7 @@ if (!fw) {
   throw message;
 }
 var uid = fw.uid;
-var firmwareArray = database.querySharedByUids(
+var firmwareArray = database.queryByUids(
   'Binary', [uid],
   ['name','version','object'], ['get']);
 if (firmwareArray.length === 0) {
