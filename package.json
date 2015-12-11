@@ -1,6 +1,6 @@
 {
   "name": "firmware",
-  "version": "1.0.0",
+  "version": "1.0.1",
 	"description": "Firmware update",
   "maintainers": [
     {
@@ -37,7 +37,7 @@
   "models" : {
     "Binary" : {
       "array" : true,
-      "shared" : true,
+      "scope" : "global",
       "attributes" : {
         "name" : {"type" : "string"},
         "version" : {"type" : "string"},
